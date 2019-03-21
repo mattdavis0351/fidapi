@@ -136,11 +136,12 @@ def create_mongo_session(database, collection):
     pymongo library to place nice with it for CRUD operations.
 '''
 def parse_form():
-    x={}
+    x = {}
     d = request.form
     for key in d.keys():
         value = request.form.getlist(key)
-        x[key]=value
+        for val in value:
+            x[key] = val
     return x
 
 
